@@ -3,7 +3,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: petclinic-deployment
+  name: 2020wa86188-deployment
 spec:
   replicas: 1
   strategy:
