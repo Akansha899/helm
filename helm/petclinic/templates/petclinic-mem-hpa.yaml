@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v2beta1
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: petclinic-mem-hpa
@@ -8,7 +8,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: petclinic-deployment
+    name: 2020wa86188-deployment
   metrics:
   - type: Resource
     resource:
