@@ -1,15 +1,26 @@
 pipeline {
-	agent any
+    agent any
+    environment {
+        IMAGE_REPOSITORY = 'cloudfreak.azurecr.io/cloudfreak/2020wa86188-dissertation'
+        IMAGE_TAG = '1'
+    }
     stages {
-        stage('Build on k8 ') {
+        stage('Deploy with Helm') {
             steps {           
-                        sh 'pwd'
-                        sh 'cp -R helm/* .'
-		        sh 'ls -ltr'
-                        sh 'pwd'
-                        sh '/usr/local/bin/helm upgrade --install petclinic-app petclinic  --set image.repository=cloudfreak.azurecr.io/cloudfreak/petclinic --set image.tag=1'
-              			
+                sh 'pwd'
+                sh 'cp -R helm/* .'
+                sh 'ls -ltr'
+                sh 'pwd'
+                sh "/usr/local/bin/helm upgrade --install petclinic-app petclinic --set image.repository=${IMAGE_REPOSITORY} --set image.tag=${IMAGE_TAG}"
             }           
+        }
+    }
+    post {
+        success {
+            echo 'Deployment successful.'
+        }
+        failure {
+            echo 'Deployment failed.'
         }
     }
 }
