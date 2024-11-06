@@ -1,16 +1,14 @@
-# Service - LoadBalancer
-# # pb-service -lb.yml
 apiVersion: v1
 kind: Service
 metadata:
-  name: 2020wa86188-service
+  name: dissertation-service
   labels:
     app: 2020wa86188-app
 spec:
   selector:
-    app: 202086188-app
+    app: 2020wa86188-app  # Updated to match metadata label
   type: LoadBalancer
   ports:
-  - nodePort: 32751
-    port: 8080
-    targetPort: 8080
+    - port: 8080
+      targetPort: 8080
+      nodePort: 32751
