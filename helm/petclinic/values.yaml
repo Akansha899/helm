@@ -9,7 +9,9 @@ image:
   tag: latest
   pullPolicy: IfNotPresent
 
-imagePullSecrets: []
+#imagePullSecrets: []
+imagePullSecrets:
+- name: regcred  # The secret name that stores your Docker registry credentials
 nameOverride: ""
 fullnameOverride: ""
 
