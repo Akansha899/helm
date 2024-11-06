@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: initsixcloud/petclinic
+  repository: akansha899/2020wa86188-dissertation
   tag: latest
   pullPolicy: IfNotPresent
 
