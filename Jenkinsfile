@@ -11,7 +11,7 @@ pipeline {
                 sh 'cp -R helm/* .'
                 sh 'ls -ltr'
                 sh 'pwd'
-                sh "/usr/local/bin/helm upgrade --install petclinic-app petclinic --set image.repository=${IMAGE_REPOSITORY} --set image.tag=${IMAGE_TAG}"
+                sh "/usr/local/bin/helm upgrade --install 2020wa86188-app petclinic --set image.repository=${IMAGE_REPOSITORY} --set image.tag=${IMAGE_TAG}"
             }           
         }
     }
