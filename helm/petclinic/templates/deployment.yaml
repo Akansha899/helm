@@ -1,6 +1,6 @@
 #Deployment
 ###controllers/pb-deploy.tml
-apiVersion: apps/v1
+ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: 2020wa86188-deployment
@@ -8,7 +8,6 @@ spec:
   replicas: 1
   strategy:
     type: RollingUpdate
-    rollingUpdate:
   minReadySeconds: 5
   revisionHistoryLimit: 10
   selector:
@@ -25,15 +24,68 @@ spec:
         imagePullPolicy: Always
         resources:
           limits:
-            cpu: '1'
-            memory: '1G'
+            cpu: "500m"     # Limits reduced to 0.5 CPU (500 millicores)
+            memory: "512Mi" # Limits reduced to 512 MiB memory
           requests:
-            cpu: '1'
-            memory: '1G'
+            cpu: "250m"     # Requests reduced to 0.25 CPU (250 millicores)
+            memory: "256Mi" # Requests reduced to 256 MiB memory
         ports:
         - containerPort: 8080
       imagePullSecrets:
       - name: regcred
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: 2020wa86188-deployment
+#spec:
+#  replicas: 1
+ # strategy:
+#    type: RollingUpdate
+  #  rollingUpdate:
+ # minReadySeconds: 5
+#  revisionHistoryLimit: 10
+#  selector:
+#    matchLabels:
+#      app: petclinic-app
+#  template:
+#    metadata:
+ #     labels:
+ #       app: petclinic-app
+ #   spec:
+   #   containers:
+    #  - name: petclinic-container
+    #    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+     #   imagePullPolicy: Always
+      #  resources:
+      #    limits:
+     #       cpu: '1'
+    #        memory: '1G'
+     #     requests:
+     #       cpu: '1'
+     #       memory: '1G'
+    #    ports:
+    #    - containerPort: 8080
+    #  imagePullSecrets:
+   #   - name: regcred
+
+
+
+
+     
 
 
 
