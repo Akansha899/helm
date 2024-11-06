@@ -1,6 +1,6 @@
 #Deployment
 ###controllers/pb-deploy.tml
- apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: 2020wa86188-deployment
